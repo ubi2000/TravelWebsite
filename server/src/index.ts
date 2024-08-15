@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
 import dbConnection from "./config/db";
-
+import authRoute from "./routes/authRoutes"
 
 dotenv.config();
 
@@ -20,9 +20,7 @@ dbConnection()
 
 
 //Routes
-app.get("/", (req: Request, res: Response) => {
-  res.send("Tour and Travel App");
-});
+app.use("/auth",authRoute)
 
 //start
 const PORT = process.env.PORT || 5000
